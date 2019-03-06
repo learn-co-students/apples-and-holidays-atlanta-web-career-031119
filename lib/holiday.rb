@@ -59,28 +59,36 @@ def all_supplies_in_holidays(holiday_hash)
   # Summer:
   #   Fourth Of July: Fireworks, BBQ
   # etc.
-  holiday_hash.map do |season, days|
-    cap_season=season.to_s
-    cap_season=cap_season.split
-    cap_season.map {|item| item=item.capitalize}
-    season=cap_season.join(" ")
-    cap_day=days.to_s
-    cap_day=cap_day.split
-    cap_day.map {|item| item=item.capitalize}
-    day=cap_day.join(" ")
-    days.map do |supply|
-      cap_supply=supply.to_s
-      cap_supply=cap_supply.split
-      cap_supply.map {|item| item=item.capitalize}
-      supply=cap_supply.join(" ")
-    end
-  end
+
+  # holiday_hash.map do |season, days|
+  #   cap_season=season.to_s
+  #   cap_season=cap_season.split
+  #   cap_season.map {|item| item=item.capitalize}
+  #   season=cap_season.join(" ")
+  #   cap_day=days.to_s
+  #   cap_day=cap_day.split
+  #   cap_day.map {|item| item=item.capitalize}
+  #   day=cap_day.join(" ")
+  #   days.map do |supply|
+  #     cap_supply=supply.to_s
+  #     cap_supply=cap_supply.split
+  #     cap_supply.map {|item| item=item.capitalize}
+  #     supply=cap_supply.join(" ")
+  #   end
+  # end
+
   holiday_hash.each do |season, days|
-    print season.to_s+":"+"\n"
+    cap_season=season.to_s.capitalize!
+    print cap_season+":"+"\n"
     day_array=season.keys
     d=0
     if d<day_array.length
-      print " #{day_array[d].to_s}: " + "#{holiday_hash["#{season}"][:"#{day_array[d]}"].join(", ")}" + "\n"
+      cap_day=day_array[d].to_s.capitalize!
+      cap_supply=[]
+      holiday_hash[season]["#{day_array[d]}"].each do |supply|
+        cap_supply<<supply.to_s.capitalize!
+      end
+      print " #{cap_day}: " + "#{cap_supply.join(", ")}" + "\n"
       d+=1
     end
   end
