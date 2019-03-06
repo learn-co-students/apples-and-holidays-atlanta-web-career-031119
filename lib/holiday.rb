@@ -82,7 +82,7 @@ def all_supplies_in_holidays(holiday_hash)
     puts cap_season+":"
     day_array=holiday_hash[season].keys
     d=0
-    if d<day_array.length
+    while d<day_array.length
       cap_day=day_array[d].to_s.capitalize!
       cap_supply=[]
       holiday_hash[season][:"#{day_array[d]}"].each do |supply|
