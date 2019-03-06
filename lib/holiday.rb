@@ -64,7 +64,7 @@ def all_supplies_in_holidays(holiday_hash)
     cap_season=cap_season.split
     cap_season.map {|item| item=item.capitalize}
     season=cap_season.join(" ")
-    cap_day=day.to_s
+    cap_day=days.to_s
     cap_day=cap_day.split
     cap_day.map {|item| item=item.capitalize}
     day=cap_day.join(" ")
