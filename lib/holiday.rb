@@ -60,9 +60,7 @@ def all_supplies_in_holidays(holiday_hash)
   #   Fourth Of July: Fireworks, BBQ
   # etc.
   holiday_hash.map do |season, days|
-    cap_season=season.split
-    cap_season.map {|item| item.capitalize!}
-    season=cap_season.join!
+    season.capitalize!
     days.map do |day, supply|
       cap_day=day.split
       cap_day.map {|item| item.capitalize!}
@@ -70,6 +68,7 @@ def all_supplies_in_holidays(holiday_hash)
       cap_supply=supply.split
       cap_supply.map {|item| item.capitalize!}
       supply=cap_supply.join!
+    end
   end
 end
 
