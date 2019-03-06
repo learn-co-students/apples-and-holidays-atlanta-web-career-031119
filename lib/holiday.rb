@@ -64,17 +64,24 @@ def all_supplies_in_holidays(holiday_hash)
     cap_season=cap_season.split
     cap_season.map {|item| item=item.capitalize}
     season=cap_season.join(" ")
-    days.map do |day, supply|
-      cap_day=day.to_s
-      cap_day=cap_day.split
-      cap_day.map {|item| item=item.capitalize}
-      day=cap_day.join(" ")
-      supply.map do |item|
-        cap_supply=item.to_s
-        cap_supply=cap_supply.split
-        cap_supply.map {|item| item=item.capitalize}
-        supply=cap_supply.join(" ")
-      end
+    cap_day=day.to_s
+    cap_day=cap_day.split
+    cap_day.map {|item| item=item.capitalize}
+    day=cap_day.join(" ")
+    days.map do |supply|
+      cap_supply=supply.to_s
+      cap_supply=cap_supply.split
+      cap_supply.map {|item| item=item.capitalize}
+      supply=cap_supply.join(" ")
+    end
+  end
+  holiday_hash.each do |season, days|
+    puts season+":"
+    day_array=days.keys
+    d=day_array.length
+    if d>0
+      print " #{day_array[d]}: " + "#{holiday_hash[:"#{season}"][:"#{day_array[d]"].join(", ")}"
+      d-=1
     end
   end
 end
