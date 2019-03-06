@@ -88,7 +88,7 @@ def all_supplies_in_holidays(holiday_hash)
       holiday_hash[season][:"#{day_array[d]}"].each do |supply|
         cap_supply<<supply.to_s.capitalize!
       end
-      puts " #{cap_day}: " + "#{cap_supply.join(", ")}"
+      puts "  #{cap_day}: " + "#{cap_supply.join(", ")}"
       d+=1
     end
   end
