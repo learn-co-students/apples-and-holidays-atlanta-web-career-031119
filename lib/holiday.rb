@@ -80,7 +80,7 @@ def all_supplies_in_holidays(holiday_hash)
     day_array=days.keys
     d=day_array.length
     if d>0
-      print " #{day_array[d]}: " + "#{holiday_hash[:"#{season}"][:"#{day_array[d]"].join(", ")}"
+      print " #{day_array[d]}: " + "#{holiday_hash[:"#{season}"][:"#{day_array[d]}"].join(", ")}" + "\n"
       d-=1
     end
   end
