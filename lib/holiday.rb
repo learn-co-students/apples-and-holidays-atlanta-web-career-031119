@@ -76,12 +76,12 @@ def all_supplies_in_holidays(holiday_hash)
     end
   end
   holiday_hash.each do |season, days|
-    puts season+":"
+    print season.to_s+":"+"\n"
     day_array=days.keys
-    d=day_array.length
-    if d>0
-      print " #{day_array[d]}: " + "#{holiday_hash[:"#{season}"][:"#{day_array[d]}"].join(", ")}" + "\n"
-      d-=1
+    d=0
+    if d<day_array.length
+      print " #{day_array[d].to_s}: " + "#{holiday_hash["#{season}"][:"#{day_array[d]}"].join(", ")}" + "\n"
+      d+=1
     end
   end
 end
