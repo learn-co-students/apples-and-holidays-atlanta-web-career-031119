@@ -80,7 +80,7 @@ def all_supplies_in_holidays(holiday_hash)
   holiday_hash.each do |season, days|
     cap_season=season.to_s.capitalize!
     print cap_season+":"+"\n"
-    day_array=season.keys
+    day_array=holiday_hash[season].keys
     d=0
     if d<day_array.length
       cap_day=day_array[d].to_s.capitalize!
