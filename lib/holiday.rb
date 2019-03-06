@@ -77,20 +77,32 @@ def all_supplies_in_holidays(holiday_hash)
   #   end
   # end
 
+  # holiday_hash.each do |season, days|
+  #   cap_season=season.to_s.capitalize!
+  #   puts cap_season+":"
+  #   day_array=holiday_hash[season].keys
+  #   d=0
+  #   while d<day_array.length
+  #     cap_day=day_array[d].to_s.capitalize!
+  #     cap_supply=[]
+  #     holiday_hash[season][:"#{day_array[d]}"].each do |supply|
+  #       cap_supply.push(supply.to_s.capitalize!)
+  #       binding.pry
+  #     end
+  #     puts "  #{cap_day}: " + "#{cap_supply.join(", ")}"
+  #     d+=1
+  #   end
+  # end
+
   holiday_hash.each do |season, days|
     cap_season=season.to_s.capitalize!
     puts cap_season+":"
-    day_array=holiday_hash[season].keys
-    d=0
-    while d<day_array.length
-      cap_day=day_array[d].to_s.capitalize!
+    season.each do |day, supply|
+      cap_day=day.split("_")
+      cap_day.map {|d| d=d.to_s.captialize!}
       cap_supply=[]
-      holiday_hash[season][:"#{day_array[d]}"].each do |supply|
-        cap_supply.push(supply.to_s.capitalize!)
-        binding.pry
-      end
-      puts "  #{cap_day}: " + "#{cap_supply.join(", ")}"
-      d+=1
+      day.each {|s| cap_supply<<s.to_s.capitalize!}
+      puts "  #{cap_day.join(" ")}: " + "#{cap_supply.join(", ")}"
     end
   end
 end
